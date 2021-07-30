@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Ag-grid CSS
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+// Classic reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Material setup
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Simple/complete breakpoints
+.break-simple {
+  display: none;
+
+  @media(max-width: 1000px) {
+    display: block;
+  }
+}
+.break-complete {
+  @media(max-width: 1000px) {
+    display: none;
+  }
+}

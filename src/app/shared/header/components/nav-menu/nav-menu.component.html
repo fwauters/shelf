@@ -1,0 +1,29 @@
+<nav class="nav-menu">
+  <a
+    mat-icon-button
+    [matMenuTriggerFor]="navMenu"
+    aria-label="Button for the navigation menu"
+  >
+    <mat-icon [inline]="true" class="menu-icon">menu</mat-icon>
+  </a>
+  <mat-menu #navMenu="matMenu">
+    <button mat-menu-item
+      [routerLink]="['/', 'home']"
+    >
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-menu-item
+      [routerLink]="['/', 'dashboard']"
+    >
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </button>
+    <button mat-menu-item
+      (click)="test()"
+    >
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+    </button>
+  </mat-menu>
+</nav>
