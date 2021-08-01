@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "shelf-13": {
+      "hosting": {
+        "shelf": [
+          "shelf-13"
+        ]
+      }
+    }
+  }
+}

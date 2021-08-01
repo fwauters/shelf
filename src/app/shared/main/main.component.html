@@ -1,3 +1,8 @@
 <main>
-  <router-outlet></router-outlet>
+  <ng-component *ngIf="userIsLogged; else userNotLogged">
+    <router-outlet></router-outlet>
+  </ng-component>
+  <ng-template #userNotLogged>
+    <p>Please log-in ...</p>
+  </ng-template>
 </main>

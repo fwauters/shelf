@@ -12,8 +12,14 @@
 }
 
 // Material setup
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 // Simple/complete breakpoints
 .break-simple {
@@ -27,4 +33,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @media(max-width: 1000px) {
     display: none;
   }
+}
+
+// Regular classes
+.dialog-container {
+  width: 100%;
+  height: 100%;
 }

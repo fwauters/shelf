@@ -19,7 +19,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@shelf-models": ["models/index.ts"],
+      "@shelf-front/assets": ["src/assets/index.ts"],
+      "@shelf-front/dialogs": ["src/app/dialogs/index.ts"],
+      "@shelf-back/database": ["database/index.ts"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
