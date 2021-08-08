@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { FormBuilder ,FormControl, FormGroup, FormArray } from "@angular/forms";
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
+import {take} from 'rxjs/operators';
 
 import { CollectionService } from '@shelf-back/database';
 
@@ -10,15 +12,39 @@ import { CollectionService } from '@shelf-back/database';
 })
 export class AddCollectionDialogComponent implements OnInit {
 
-  //otherResultForm: FormGroup = this.resetForm();
+  @ViewChild('autosize') autosize!: CdkTextareaAutosize;
 
-  addCollectionForm = this.resetForm();
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this._ngZone.onStable.pipe(take(1))
+        .subscribe(() => this.autosize.resizeToFitContent(true));
+  }
+
+  addCollectionForm: FormGroup = this.resetForm();
 
   collectionName: string = '';
+  columnHeader : string = '';
+  selectedType: string = '';
+
+  formTypes = [
+    {
+      title: 'Texte',
+      value: 'text',
+    },
+    {
+      title: 'Numéro',
+      value: 'number',
+    },
+    {
+      title: 'Date',
+      value: 'date',
+    },
+  ];
 
   constructor(
     private fb: FormBuilder,
     private collection: CollectionService,
+    private _ngZone: NgZone,
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +55,10 @@ export class AddCollectionDialogComponent implements OnInit {
       name: [''],
       collection: this.fb.array([]),
     });
+  }
+
+  addNewField(type: string, title: string) {
+    console.log(type + ' / ' + title);
   }
 
 }

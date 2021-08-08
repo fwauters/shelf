@@ -1,12 +1,78 @@
 <section class="dialog-container">
   <div class="dialog-title">
-    <h3>New collection {{ collectionName }}</h3>
+    <h3>Nouvelle collection: &nbsp;{{ collectionName }}</h3>
+    <hr />
   </div>
   <form>
-    <p>It works !!!</p>
-    <input [(ngModel)]="collectionName">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Nom de la collection</mat-label>
+        <input matInput type="text" [(ngModel)]="collectionName" />
+      </mat-form-field>
+    </div>
+    <hr />
+    <div>
+      <h4>Nouvelle colonne</h4>
 
-    <!-- <button></button> -->
-    <p>test</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Titre</mat-label>
+        <input matInput type="text" [(ngModel)]="columnHeader" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Type d'information</mat-label>
+        <mat-select [(value)]="selectedType">
+          <mat-option [value]="type.value" *ngFor="let type of formTypes">
+            {{ type.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <p>Selected: {{ columnHeader + ' / ' + selectedType }}</p>
+
+      <ng-container *ngIf="selectedType === 'text'">
+        <mat-form-field appearance="fill">
+          <mat-label>Texte</mat-label>
+          <textarea
+            matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+          >
+          </textarea>
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container *ngIf="selectedType === 'number'">
+        <mat-form-field appearance="fill">
+          <mat-label>Numéro</mat-label>
+          <input matInput type="number" />
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container *ngIf="selectedType === 'date'">
+        <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </ng-container>
+
+      <!-- *Date picker don't seems to work
+        *check about date range and datepicker inline calendar
+        *(https://material.angular.io/components/datepicker/examples) -->
+
+    </div>
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addNewField(selectedType, columnHeader)"
+      >
+        Log selected
+      </button>
+    </div>
   </form>
 </section>

@@ -18,17 +18,23 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { MainComponent } from './shared/main/main.component';
-import { HomeComponent } from './pages/home/home.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 import { NavMenuComponent } from './shared/header/components/nav-menu/nav-menu.component';
 import { MainTitleComponent } from './shared/header/components/main-title/main-title.component';
+
+import { HomeComponent } from './pages/home/home.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CollectionsComponent } from './pages/collections/collections.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+
+import { AddCollectionDialogComponent } from './dialogs/components/add-collection-dialog/add-collection-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +48,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     MainTitleComponent,
     CollectionsComponent,
     SettingsComponent,
+    AddCollectionDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +69,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
