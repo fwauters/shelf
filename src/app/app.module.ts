@@ -3,7 +3,7 @@ import { NgxsModule } from '@ngxs/store';
 import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from '@angular/fire';
@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -44,6 +45,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -59,6 +61,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     MatMenuModule,
     MatDialogModule,
     MatButtonModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

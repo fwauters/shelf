@@ -33,7 +33,7 @@ export class CollectionsComponent implements OnInit {
   }
 
   addCollection() {
-    console.log('add collection');
+    console.log('add collection ++++++++++++++++++++++++++++++++++++++');
     this.dialog.openAddCollectionDialog();
   }
 

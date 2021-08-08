@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormBuilder ,FormControl, FormGroup, FormArray } from "@angular/forms";
 
 import { CollectionService } from '@shelf-back/database';
 
@@ -12,14 +12,23 @@ export class AddCollectionDialogComponent implements OnInit {
 
   //otherResultForm: FormGroup = this.resetForm();
 
-  addCollectionForm = new FormGroup({
-    name: new FormControl(''),
-    number: new FormControl(''),
-  });
+  addCollectionForm = this.resetForm();
 
-  constructor(private collection: CollectionService,) { }
+  collectionName: string = '';
+
+  constructor(
+    private fb: FormBuilder,
+    private collection: CollectionService,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  resetForm() {
+    return this.fb.group({
+      name: [''],
+      collection: this.fb.array([]),
+    });
   }
 
 }
